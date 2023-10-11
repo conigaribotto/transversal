@@ -1,4 +1,4 @@
-package tranversal.access;
+package transversal.AccesoADatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,7 +24,7 @@ public class Conexion {
                 //Cargo Driver de conexión
                 Class.forName("org.mariadb.jdbc.Driver");
 
-                conexion = DriverManager.getConnection(URL + DB + usuario + password);
+                conexion = DriverManager.getConnection(URL + DB, usuario, password);
 
             } catch (ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "Error al cargar Driver" + ex.getMessage());
@@ -39,7 +39,7 @@ public class Conexion {
 //                    JOptionPane.showMessageDialog(null, "BD inexistente");
 //                } else {
 
-                JOptionPane.showMessageDialog(null, "Error SQL" + ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Error al conectar con BD" + ex.getMessage());
 
             }
         }

@@ -1,4 +1,4 @@
-package transversal.entity;
+package transversal.Entidades;
 
 
 public class Inscripcion {
