@@ -58,6 +58,8 @@ public class AlumnoData {
 
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Alumno modificado.");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontro el alumno.");
             }
 
         } catch (SQLException ex) {

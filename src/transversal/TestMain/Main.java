@@ -12,30 +12,30 @@ public class Main {
         // Connection con = Conexion.getConexion();
 
         /*  ---------INSERT alumno--------- 
-       Alumno alum = new Alumno(44360475,"Lionel","Messi",LocalDate.of(1987, 24, 06),true); //en memoria ram
+       Alumno alum = new Alumno(44360475,"Messi","Lionel",LocalDate.of(1987, 06, 24),true); //en memoria ram
        AlumnoData alumData = new AlumnoData();
        alumData.guardarAlumno(alum); //en BD
          */
  /* ---------UPDATE alumno--------- 
-       Alumno alum = new Alumno(10,44360475,"Lionel","Andres Messi",LocalDate.of(1987, 24, 06),true); //add idAlumno, cambio nombre
+       Alumno alum = new Alumno(1,44360475,"Messi","Andres Lionel",LocalDate.of(1987, 06, 24),true); //cambio nombre
        AlumnoData alumData = new AlumnoData();
        alumData.modificarAlumno(alum);
-         */
+     */    
  /* ---------ELIMINAR alumno--------- 
-       Alumno alum = new Alumno(10,44360475,"Lionel","Andres Messi",LocalDate.of(1987, 24, 06),true); //add idAlumno, cambio nombre
+       Alumno alum = new Alumno(1,44360475,"Messi","Andres Lionel",LocalDate.of(1987, 06, 24),true);
        AlumnoData alumData = new AlumnoData();
        alumData.eliminarAlumno(10); //id de alum
          */
  /* ---------SELECT alumno--------- busco un alumno por ID 
         AlumnoData alumData = new AlumnoData();
-        Alumno alumnoEncontrado = alumData.buscarAlumnoPorId(4); //verificar que este ese id en bd
+        Alumno alumnoEncontrado = alumData.buscarAlumnoPorId(1); //verificar que este ese id en bd
         if (alumnoEncontrado != null) {
             System.out.println("Dni: " + alumnoEncontrado.getDni() + " Apellido: " + alumnoEncontrado.getApellido());
         }
          */
  /* ---------SELECT alumno--------- busco un alumno por DNI 
         AlumnoData alumData = new AlumnoData();
-        Alumno alumnoEncontrado = alumData.buscarAlumnoPorDni(33333); //verificar que este ese dni en bd
+        Alumno alumnoEncontrado = alumData.buscarAlumnoPorDni(44360475); //verificar que este ese dni en bd
         if (alumnoEncontrado != null) {
             System.out.println("Dni: " + alumnoEncontrado.getDni() + " Apellido: " + alumnoEncontrado.getApellido());
         }
