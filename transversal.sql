@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2023 a las 17:33:07
+-- Tiempo de generación: 11-10-2023 a las 18:02:56
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -32,34 +32,8 @@ CREATE TABLE `alumno` (
   `dni` int(11) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `fechaNac` date NOT NULL,
+  `fechaNacimiento` date NOT NULL,
   `estado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `inscripcion`
---
-
-CREATE TABLE `inscripcion` (
-  `idInscripcion` int(11) NOT NULL,
-  `nota` int(11) NOT NULL,
-  `idAlumno` int(11) NOT NULL,
-  `idMateria` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `materia`
---
-
-CREATE TABLE `materia` (
-  `idMateria` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `anio` int(11) NOT NULL,
-  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -74,21 +48,6 @@ ALTER TABLE `alumno`
   ADD UNIQUE KEY `dni` (`dni`);
 
 --
--- Indices de la tabla `inscripcion`
---
-ALTER TABLE `inscripcion`
-  ADD PRIMARY KEY (`idInscripcion`),
-  ADD UNIQUE KEY `idAlumno` (`idAlumno`),
-  ADD UNIQUE KEY `idMateria` (`idMateria`);
-
---
--- Indices de la tabla `materia`
---
-ALTER TABLE `materia`
-  ADD PRIMARY KEY (`idMateria`),
-  ADD UNIQUE KEY `nombre` (`nombre`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -97,18 +56,6 @@ ALTER TABLE `materia`
 --
 ALTER TABLE `alumno`
   MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `inscripcion`
---
-ALTER TABLE `inscripcion`
-  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `materia`
---
-ALTER TABLE `materia`
-  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
