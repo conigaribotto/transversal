@@ -21,6 +21,7 @@ public class Main {
        AlumnoData alumData = new AlumnoData();
        alumData.modificarAlumno(alum);
      */    
+         */
  /* ---------ELIMINAR alumno--------- 
        Alumno alum = new Alumno(1,44360475,"Messi","Andres Lionel",LocalDate.of(1987, 06, 24),true);
        AlumnoData alumData = new AlumnoData();
