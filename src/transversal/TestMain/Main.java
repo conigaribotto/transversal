@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.time.LocalDate;
 import transversal.AccesoADatos.AlumnoData;
 import transversal.AccesoADatos.Conexion;
+import transversal.AccesoADatos.MateriaData;
 import transversal.Entidades.Alumno;
+import transversal.Entidades.Materia;
 
 public class Main {
 
@@ -20,8 +22,7 @@ public class Main {
        Alumno alum = new Alumno(1,44360475,"Messi","Andres Lionel",LocalDate.of(1987, 06, 24),true); //cambio nombre
        AlumnoData alumData = new AlumnoData();
        alumData.modificarAlumno(alum);
-     */    
-         
+         */
  /* ---------ELIMINAR alumno--------- 
        Alumno alum = new Alumno(1,44360475,"Messi","Andres Lionel",LocalDate.of(1987, 06, 24),true);
        AlumnoData alumData = new AlumnoData();
@@ -50,6 +51,48 @@ public class Main {
             System.out.println("Apellido: "+alumno.getApellido());
             System.out.println("Nombre: "+alumno.getNombre());
             System.out.println("Fecha de nacimiento: "+alumno.getFechaNac()); 
+        }
+         */
+ 
+ 
+ 
+ 
+ 
+        ///////////PRUEBAS CON MateriaData :):):):):):)/////////////
+        
+        
+        
+         /* ---------INSERT materia--------- 
+       Materia materia = new Materia(105,"Geografia",2023,true); //en memoria ram
+       MateriaData materiaData = new MateriaData();
+       materiaData.guardarMateria(materia); //en BD
+        */
+         
+/* ---------UPDATE materia--------- //POR ALGUNA RAZON NO FUNCIONA, REVISARRRRRRRRRR
+       Materia materia = new Materia(105,"Matematica",2023,true); //cambio nombre
+       MateriaData materiaData = new MateriaData();
+       materiaData.modificarMateria(materia);
+         */
+         
+ /* ---------ELIMINAR materia--------- 
+       MateriaData materiaData = new MateriaData();
+       materiaData.eliminarMateria(105); //id de alum
+         */
+ /* ---------SELECT materia--------- busco una materia por ID 
+        MateriaData materiaData = new MateriaData();
+        Materia materiaEncontrada = materiaData.buscarMateriaPorId(100); //verificar que este ese id en bd
+        if (materiaEncontrada != null) {
+            System.out.println("Nombre: " + materiaEncontrada.getNombre() + " Anio: " + materiaEncontrada.getAnioMateria());
+        }
+         */
+
+ /* ---------SELECT materia--------- busco Todos las materias
+        MateriaData materiaData = new MateriaData();
+        
+        for(Materia materia:materiaData.listarMaterias()){
+            System.out.println("");
+            System.out.println("Nombre: " + materia.getNombre());
+            System.out.println("Anio: "+ materia.getAnioMateria()); 
         }
          */
     }
