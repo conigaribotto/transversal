@@ -68,12 +68,11 @@ public class Main {
        materiaData.guardarMateria(materia); //en BD
         */
          
-/* ---------UPDATE materia--------- //POR ALGUNA RAZON NO FUNCIONA, REVISARRRRRRRRRR
-       Materia materia = new Materia(105,"Matematica",2023,true); //cambio nombre
+    /*// ---------UPDATE materia--------- //POR ALGUNA RAZON NO FUNCIONA, REVISARRRRRRRRRR
+       Materia materia = new Materia(105,"Alfiiiin",2023,true); //cambio nombre
        MateriaData materiaData = new MateriaData();
        materiaData.modificarMateria(materia);
          */
-         
  /* ---------ELIMINAR materia--------- 
        MateriaData materiaData = new MateriaData();
        materiaData.eliminarMateria(105); //id de alum
