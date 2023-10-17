@@ -72,9 +72,9 @@ public class MateriaData {
         }
         return materia;
     }
-
+//Arreglo
     public void modificarMateria(Materia materia) {
-        String sql = "UPDATE materia SET nombre = ?, anioMateria = ?"
+        String sql = "UPDATE materia SET nombre = ?, anioMateria = ? "
                 + "WHERE idMateria = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
