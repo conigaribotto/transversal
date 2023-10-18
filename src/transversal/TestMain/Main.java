@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.time.LocalDate;
 import transversal.AccesoADatos.AlumnoData;
 import transversal.AccesoADatos.Conexion;
+import transversal.AccesoADatos.InscripcionData;
 import transversal.AccesoADatos.MateriaData;
 import transversal.Entidades.Alumno;
+import transversal.Entidades.Inscripcion;
 import transversal.Entidades.Materia;
 
 public class Main {
@@ -94,5 +96,19 @@ public class Main {
             System.out.println("Anio: "+ materia.getAnioMateria()); 
         }
          */
+ 
+ 
+        ////PRUEBAS InscripcionData :)
+        AlumnoData ad = new AlumnoData();
+        MateriaData md = new MateriaData();
+        InscripcionData id = new InscripcionData();
+        
+        Alumno  Lionel = ad.buscarAlumnoPorId(1);
+        Materia Edu = md.buscarMateriaPorId(102);
+        Inscripcion insc = new Inscripcion(Lionel,Edu, 10);
+        
+        id.guardarInscripcion(insc);
+        
+
     }
 }
