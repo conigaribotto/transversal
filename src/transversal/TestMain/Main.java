@@ -115,5 +115,12 @@ public class Main {
      //DELETE INSCRIPCION 
      //id.borrarInscripcion(5, 104);
 
+        ///LISTA OBTENERINSCRIPCION
+        for (Inscripcion inscripcion : id.obtenerInscripciones()) {
+                  System.out.println("id "+ inscripcion.getIdInscripcion());
+                  System.out.println("Apellido "+ inscripcion.getAlumno().getApellido());
+                  System.out.println("Materia "+ inscripcion.getMateria().getNombre());
+        }
+
     }
 }
