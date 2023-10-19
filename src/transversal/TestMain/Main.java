@@ -55,22 +55,13 @@ public class Main {
             System.out.println("Fecha de nacimiento: "+alumno.getFechaNac()); 
         }
          */
- 
- 
- 
- 
- 
         ///////////PRUEBAS CON MateriaData :):):):):):)/////////////
-        
-        
-        
-         /* ---------INSERT materia--------- 
+        /* ---------INSERT materia--------- 
        Materia materia = new Materia(105,"Geografia",2023,true); //en memoria ram
        MateriaData materiaData = new MateriaData();
        materiaData.guardarMateria(materia); //en BD
-        */
-         
-    /*// ---------UPDATE materia--------- //POR ALGUNA RAZON NO FUNCIONA, REVISARRRRRRRRRR
+         */
+ /*// ---------UPDATE materia--------- //POR ALGUNA RAZON NO FUNCIONA, REVISARRRRRRRRRR
        Materia materia = new Materia(105,"Alfiiiin",2023,true); //cambio nombre
        MateriaData materiaData = new MateriaData();
        materiaData.modificarMateria(materia);
@@ -96,31 +87,42 @@ public class Main {
             System.out.println("Anio: "+ materia.getAnioMateria()); 
         }
          */
- 
- 
         ////PRUEBAS InscripcionData :)
-       AlumnoData ad = new AlumnoData();
+        AlumnoData ad = new AlumnoData();
         MateriaData md = new MateriaData();
         InscripcionData id = new InscripcionData();
-        
-        Alumno  Lionel = ad.buscarAlumnoPorId(2);
-        Materia Historia = md.buscarMateriaPorId(101);
-        Inscripcion insc = new Inscripcion(Lionel,Historia, 10);
-        
-       /* id.guardarInscripcion(insc);*/
-     
-     ///UPDATE NOTA 
-     //  id.actualizarNota(4, 103, 10);
-        
-     //DELETE INSCRIPCION 
-     //id.borrarInscripcion(5, 104);
 
-        ///LISTA OBTENERINSCRIPCION
+        Alumno Lionel = ad.buscarAlumnoPorId(2);
+        Materia Historia = md.buscarMateriaPorId(101);
+        Inscripcion insc = new Inscripcion(Lionel, Historia, 10);
+
+        /* id.guardarInscripcion(insc);*/
+        ///UPDATE NOTA 
+        //  id.actualizarNota(4, 103, 10);
+        //DELETE INSCRIPCION 
+        //id.borrarInscripcion(5, 104);
+
+        /* ///LISTA OBTENER INSCRIPCION
         for (Inscripcion inscripcion : id.obtenerInscripciones()) {
                   System.out.println("id "+ inscripcion.getIdInscripcion());
                   System.out.println("Apellido "+ inscripcion.getAlumno().getApellido());
                   System.out.println("Materia "+ inscripcion.getMateria().getNombre());
-        }
+        }*/
+ /* ///LISTA OBTENER INSCRIPCION x alumno
+        for (Inscripcion inscripcion : id.obtenerInscripcionesPorAlumno(2)) {
+                  System.out.println("id "+ inscripcion.getIdInscripcion());
+                  System.out.println("Apellido "+ inscripcion.getAlumno().getApellido());
+                  System.out.println("Materia "+ inscripcion.getMateria().getNombre());
+        }*/
+//        ///LISTA OBTENER Materias NO Cursadas
+//        for (Materia materia : id.obtenerMateriasNOCursadas(2)) {
+//            System.out.println("nombre: " + materia.getNombre());
+//
+//        }
+    ///LISTA OBTENER Materias NO Cursadas
+        for (Alumno alumno : id.obtenerAlumnosXMateria(103)) {
+            System.out.println("Alumno: " + alumno.getNombre()+" "+alumno.getApellido());
 
+        }
     }
 }
