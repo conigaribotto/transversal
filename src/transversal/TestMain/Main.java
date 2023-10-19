@@ -99,16 +99,21 @@ public class Main {
  
  
         ////PRUEBAS InscripcionData :)
-        AlumnoData ad = new AlumnoData();
+       AlumnoData ad = new AlumnoData();
         MateriaData md = new MateriaData();
         InscripcionData id = new InscripcionData();
         
-        Alumno  Lionel = ad.buscarAlumnoPorId(1);
-        Materia Edu = md.buscarMateriaPorId(102);
-        Inscripcion insc = new Inscripcion(Lionel,Edu, 10);
+        Alumno  Lionel = ad.buscarAlumnoPorId(2);
+        Materia Historia = md.buscarMateriaPorId(101);
+        Inscripcion insc = new Inscripcion(Lionel,Historia, 10);
         
-        id.guardarInscripcion(insc);
+       /* id.guardarInscripcion(insc);*/
+     
+     ///UPDATE NOTA 
+     //  id.actualizarNota(4, 103, 10);
         
+     //DELETE INSCRIPCION 
+     //id.borrarInscripcion(5, 104);
 
     }
 }
