@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public class Alumno {
 
-    int idAlumno;
-    int dni;
-    String apellido;
-    String nombre;
-    LocalDate fechaNac;
-    boolean activo;
+   private int idAlumno;
+   private int dni;
+   private String apellido;
+   private String nombre;
+   private LocalDate fechaNac;
+   private boolean activo;
 
     public Alumno() {
     }
