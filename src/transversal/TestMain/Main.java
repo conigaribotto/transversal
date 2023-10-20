@@ -93,9 +93,9 @@ public class Main {
         InscripcionData id = new InscripcionData();
 
         Alumno Lionel = ad.buscarAlumnoPorId(2);
-        Materia Historia = md.buscarMateriaPorId(101);
+        Materia Historia = md.buscarMateriaPorId(103);
         Inscripcion insc = new Inscripcion(Lionel, Historia, 10);
-
+        
         /* id.guardarInscripcion(insc);*/
         ///UPDATE NOTA 
         //  id.actualizarNota(4, 103, 10);
