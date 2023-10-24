@@ -1,4 +1,4 @@
-package transversal.AccesoADatos;
+package accesoADatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package transversal.AccesoADatos;
+package accesoADatos;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import transversal.Entidades.Alumno;
+import entidades.Alumno;
 
 /**
  * @author Grupo 8

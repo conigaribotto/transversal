@@ -1,4 +1,4 @@
-package transversal.Entidades;
+package entidades;
 
 
 public class Materia {

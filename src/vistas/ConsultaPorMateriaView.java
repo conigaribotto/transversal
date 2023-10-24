@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package transversal.frames;
+package vistas;
 
 /**
  *
  * @author Fiorella Ailén
  */
-public class ConsultaPorMateria extends javax.swing.JInternalFrame {
+public class ConsultaPorMateriaView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ConsultaPorMateria
      */
-    public ConsultaPorMateria() {
+    public ConsultaPorMateriaView() {
         initComponents();
     }
 

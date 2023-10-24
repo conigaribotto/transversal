@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package transversal.frames;
+package vistas;
 
 /**
  *
  * @author Fiorella Ailén
  */
-public class Inscripciones extends javax.swing.JInternalFrame {
+public class InscripcionesView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Inscripciones
      */
-    public Inscripciones() {
+    public InscripcionesView() {
         initComponents();
     }
 

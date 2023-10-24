@@ -1,14 +1,14 @@
-package transversal.TestMain;
+package testMain;
 
 import java.sql.Connection;
 import java.time.LocalDate;
-import transversal.AccesoADatos.AlumnoData;
-import transversal.AccesoADatos.Conexion;
-import transversal.AccesoADatos.InscripcionData;
-import transversal.AccesoADatos.MateriaData;
-import transversal.Entidades.Alumno;
-import transversal.Entidades.Inscripcion;
-import transversal.Entidades.Materia;
+import accesoADatos.AlumnoData;
+import accesoADatos.Conexion;
+import accesoADatos.InscripcionData;
+import accesoADatos.MateriaData;
+import entidades.Alumno;
+import entidades.Inscripcion;
+import entidades.Materia;
 
 public class Main {
 

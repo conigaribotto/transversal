@@ -1,22 +1,29 @@
-package transversal.frames;
+package vistas;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Usuario
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+public class MenuPrincipalView extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuPrincipal
      */
-    public MenuPrincipal() {
+    public MenuPrincipalView() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setSize(500, 520);
+        this.setTitle("Menu Principal");
     }
 
     /**
@@ -32,7 +39,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/gestionUlp.jpg"));
+        Image miImagen = icono.getImage();
+        jDPEscritorio = new javax.swing.JDesktopPane(){
+            public void paintComponent (Graphics g) {
+                g.drawImage(miImagen,0,0,getWidth(),getHeight(),this);
+            }
+        };
         jMenuBar2 = new javax.swing.JMenuBar();
         jAlumno = new javax.swing.JMenu();
         jFormAlum = new javax.swing.JMenuItem();
@@ -55,20 +68,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDPEscritorioLayout = new javax.swing.GroupLayout(jDPEscritorio);
+        jDPEscritorio.setLayout(jDPEscritorioLayout);
+        jDPEscritorioLayout.setHorizontalGroup(
+            jDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 708, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 482, Short.MAX_VALUE)
+        jDPEscritorioLayout.setVerticalGroup(
+            jDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
 
         jAlumno.setText("Alumno");
+        jAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAlumnoActionPerformed(evt);
+            }
+        });
 
         jFormAlum.setText("Formulario Alumno");
+        jFormAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormAlumActionPerformed(evt);
+            }
+        });
         jAlumno.add(jFormAlum);
 
         jMenuBar2.add(jAlumno);
@@ -76,6 +99,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMateria.setText("Materia");
 
         jFormMateria.setText("Formulario Materia");
+        jFormMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormMateriaActionPerformed(evt);
+            }
+        });
         jMateria.add(jFormMateria);
 
         jMenuBar2.add(jMateria);
@@ -102,7 +130,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar2.add(jConsultas);
 
-        jSalir.setText("Salir");
+        jSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/salir.png"))); // NOI18N
         jMenuBar2.add(jSalir);
 
         setJMenuBar(jMenuBar2);
@@ -111,11 +139,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDPEscritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDPEscritorio)
         );
 
         pack();
@@ -124,6 +152,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jManejoInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManejoInsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jManejoInsActionPerformed
+
+    private void jFormAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormAlumActionPerformed
+        jDPEscritorio.removeAll();
+        jDPEscritorio.repaint();
+        GestionAlumnoView alumno = new GestionAlumnoView();
+        alumno.setVisible(true);
+        alumno.getContentPane().setBackground(new Color(68, 167, 132));
+        jDPEscritorio.add(alumno);
+    }//GEN-LAST:event_jFormAlumActionPerformed
+
+    private void jAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAlumnoActionPerformed
+
+    private void jFormMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormMateriaActionPerformed
+        jDPEscritorio.removeAll();
+        jDPEscritorio.repaint();
+        GestionMateriaView materia = new GestionMateriaView();
+        materia.setVisible(true);
+        materia.getContentPane().setBackground(new Color(68, 167, 132));
+        jDPEscritorio.add(materia);
+    }//GEN-LAST:event_jFormMateriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,20 +192,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new MenuPrincipalView().setVisible(true);
             }
         });
     }
@@ -165,7 +216,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jAlumPorMateria;
     private javax.swing.JMenu jAlumno;
     private javax.swing.JMenu jConsultas;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDPEscritorio;
     private javax.swing.JMenuItem jFormAlum;
     private javax.swing.JMenuItem jFormMateria;
     private javax.swing.JMenuItem jManNotas;

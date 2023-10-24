@@ -1,4 +1,4 @@
-package transversal.AccesoADatos;
+package accesoADatos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import transversal.Entidades.Alumno;
-import transversal.Entidades.Inscripcion;
-import transversal.Entidades.Materia;
+import entidades.Alumno;
+import entidades.Inscripcion;
+import entidades.Materia;
 
 public class InscripcionData {
 
