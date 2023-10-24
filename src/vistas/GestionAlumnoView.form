@@ -47,15 +47,15 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jtfNombre" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jtfNombre" alignment="0" pref="153" max="32767" attributes="0"/>
                                           <Component id="jtfApellido" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jtfDni" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jdcNacimiento" alignment="0" pref="153" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jbBuscar" min="-2" pref="56" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jcEstado" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jdcNacimiento" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -87,7 +87,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="15" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="11" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                               <Component id="jtfDni" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -110,7 +110,7 @@
                           <Component id="jcEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="jdcNacimiento" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -118,7 +118,7 @@
                       <Component id="jLabel6" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <EmptySpace pref="55" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jbNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -217,9 +217,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSalirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jdcNacimiento">
-    </Component>
     <Component class="javax.swing.JCheckBox" name="jcEstado">
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jdcNacimiento">
     </Component>
   </SubComponents>
 </Form>
