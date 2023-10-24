@@ -5,15 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author Usuario
- */
+
 public class MenuPrincipalView extends javax.swing.JFrame {
 
     /**
@@ -126,6 +118,11 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         jConsultas.setText("Consultas");
 
         jAlumPorMateria.setText("Alumno por materia");
+        jAlumPorMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAlumPorMateriaActionPerformed(evt);
+            }
+        });
         jConsultas.add(jAlumPorMateria);
 
         jMenuBar2.add(jConsultas);
@@ -180,6 +177,15 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         materia.getContentPane().setBackground(new Color(68, 167, 132));
         jDPEscritorio.add(materia);
     }//GEN-LAST:event_jFormMateriaActionPerformed
+
+    private void jAlumPorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAlumPorMateriaActionPerformed
+        jDPEscritorio.removeAll();
+        jDPEscritorio.repaint();
+        ConsultaPorMateriaView materia = new ConsultaPorMateriaView();
+        materia.setVisible(true);
+        materia.getContentPane().setBackground(new Color(68, 167, 132));
+        jDPEscritorio.add(materia);
+    }//GEN-LAST:event_jAlumPorMateriaActionPerformed
 
     /**
      * @param args the command line arguments

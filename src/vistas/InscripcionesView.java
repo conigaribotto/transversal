@@ -1,4 +1,3 @@
-
 package vistas;
 
 import accesoADatos.InscripcionData;
@@ -13,28 +12,27 @@ import javax.swing.table.DefaultTableModel;
 
 public class InscripcionesView extends javax.swing.JInternalFrame {
 
-    private ArrayList <Materia> listaM;
-    private ArrayList <Alumno> listaA;
-    
+    private ArrayList<Materia> listaM;
+    private ArrayList<Alumno> listaA;
+
     private InscripcionData inscData;
     private MateriaData mData;
     private AlumnoData aData;
-    
+
     private DefaultTableModel modelo;
-    
+
     public InscripcionesView() {
         initComponents();
-        
+        this.setTitle("Formulario de Inscripción");
         aData = new AlumnoData();
         listaA = (ArrayList<Alumno>) aData.listarAlumnos();
         modelo = new DefaultTableModel();
         inscData = new InscripcionData();
         mData = new MateriaData();
-        
+
         cargarAlumnos();
         armarCabeceraTabla();
-        
-       
+
     }
 
     /**
@@ -229,7 +227,7 @@ public class InscripcionesView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jMatInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMatInsActionPerformed
-        
+
         borrarFilaTabla();
         jMatIns.setSelected(false);
         cargaDatosInscriptas();
@@ -246,74 +244,73 @@ public class InscripcionesView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jMatsNoInsActionPerformed
 
     private void jBInscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscActionPerformed
-       int filaSeleccionada = jTable.getSelectedRow();
-       if(filaSeleccionada!=-1){
-           
-           Alumno a= (Alumno) cboxAlumno.getSelectedItem();
-           int idMateria=(Integer) modelo.getValueAt(filaSeleccionada, 0);
-           String nombreMateria = (String) modelo.getValueAt(filaSeleccionada, 1);
-           int anio =(Integer) modelo.getValueAt(filaSeleccionada, 2);
-           Materia m = new Materia(idMateria,nombreMateria,anio, true);
-           
-           Inscripcion i = new Inscripcion(a, m,0);
-           inscData.guardarInscripcion(i);
-           borrarFilaTabla();
-       }
+        int filaSeleccionada = jTable.getSelectedRow();
+        if (filaSeleccionada != -1) {
+
+            Alumno a = (Alumno) cboxAlumno.getSelectedItem();
+            int idMateria = (Integer) modelo.getValueAt(filaSeleccionada, 0);
+            String nombreMateria = (String) modelo.getValueAt(filaSeleccionada, 1);
+            int anio = (Integer) modelo.getValueAt(filaSeleccionada, 2);
+            Materia m = new Materia(idMateria, nombreMateria, anio, true);
+
+            Inscripcion i = new Inscripcion(a, m, 0);
+            inscData.guardarInscripcion(i);
+            borrarFilaTabla();
+        }
     }//GEN-LAST:event_jBInscActionPerformed
 
     private void jBAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAnularActionPerformed
-       int filaSeleccionada = jTable.getSelectedRow();
-       if(filaSeleccionada!=-1){
-        Alumno a= (Alumno) cboxAlumno.getSelectedItem();
-        int idMateria= (Integer) modelo.getValueAt(filaSeleccionada, 0);
-        
-        inscData.borrarInscripcion(a.getIdAlumno(), idMateria);
-        borrarFilaTabla();
-       }
-        
+        int filaSeleccionada = jTable.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            Alumno a = (Alumno) cboxAlumno.getSelectedItem();
+            int idMateria = (Integer) modelo.getValueAt(filaSeleccionada, 0);
+
+            inscData.borrarInscripcion(a.getIdAlumno(), idMateria);
+            borrarFilaTabla();
+        }
+
     }//GEN-LAST:event_jBAnularActionPerformed
 
-
-    private void cargarAlumnos(){
-        for(Alumno item: listaA){
-        cboxAlumno.addItem(item);
+    private void cargarAlumnos() {
+        for (Alumno item : listaA) {
+            cboxAlumno.addItem(item);
         }
     }
-    
-    private void armarCabeceraTabla(){
+
+    private void armarCabeceraTabla() {
         ArrayList<Object> filaCabecera = new ArrayList<>();
         filaCabecera.add("Id");
         filaCabecera.add("Nombre");
         filaCabecera.add("Año");
-        for(Object it: filaCabecera){
-           modelo.addColumn(it);
+        for (Object it : filaCabecera) {
+            modelo.addColumn(it);
         }
         jTable.setModel(modelo);
     }
-    
-    private void borrarFilaTabla(){
-        
-        int indice = modelo.getRowCount() -1;
-        for(int i = indice; i>=0;i--){
-          modelo.removeRow(i);
+
+    private void borrarFilaTabla() {
+
+        int indice = modelo.getRowCount() - 1;
+        for (int i = indice; i >= 0; i--) {
+            modelo.removeRow(i);
         }
     }
-    
-    private void cargaDatosNoInscriptas(){
+
+    private void cargaDatosNoInscriptas() {
         //borrarFilaTabla();
-        Alumno selec = (Alumno)cboxAlumno.getSelectedItem();
-        listaM = (ArrayList)inscData.obtenerMateriasNOCursadas(selec.getIdAlumno());
-        
-        for(Materia m: listaM){
-          modelo.addRow(new Object[] {m.getIdMateria(),m.getNombre(),m.getAnioMateria()});
+        Alumno selec = (Alumno) cboxAlumno.getSelectedItem();
+        listaM = (ArrayList) inscData.obtenerMateriasNOCursadas(selec.getIdAlumno());
+
+        for (Materia m : listaM) {
+            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnioMateria()});
         }
     }
-    
-    private void cargaDatosInscriptas(){
+
+    private void cargaDatosInscriptas() {
         Alumno selec = (Alumno) cboxAlumno.getSelectedItem();
-        List <Materia> lista = inscData.obtenerMateriasCursadas(selec.getIdAlumno());
-        for(Materia m: lista){
-          modelo.addRow(new Object[] {m.getIdMateria(),m.getNombre(),m.getAnioMateria()});
+        List<Materia> lista = inscData.obtenerMateriasCursadas(selec.getIdAlumno());
+        for (Materia m : lista) {
+            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnioMateria()});
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
