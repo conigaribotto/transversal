@@ -59,6 +59,9 @@ public class InscripcionesView extends javax.swing.JInternalFrame {
         jBSalir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 153));
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jDPEscritorio.setBackground(new java.awt.Color(0, 204, 153));
 
@@ -177,7 +180,7 @@ public class InscripcionesView extends javax.swing.JInternalFrame {
                     .addGroup(jDPEscritorioLayout.createSequentialGroup()
                         .addGap(177, 177, 177)
                         .addComponent(jLabel1)))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDPEscritorioLayout.setVerticalGroup(
             jDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

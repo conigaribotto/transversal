@@ -24,6 +24,7 @@ public class ConsultaPorMateriaView extends javax.swing.JInternalFrame {
         modelo = new DefaultTableModel();
         inscData = new InscripcionData();
         mData = new MateriaData();
+        listaM = (ArrayList<Materia>) mData.listarMaterias();
 
         cargarMaterias();
         armarCabeceraTabla();
@@ -41,6 +42,9 @@ public class ConsultaPorMateriaView extends javax.swing.JInternalFrame {
         jSalir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 153));
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jLabel1.setText("Listado de alumnos por materia");
 
@@ -66,6 +70,11 @@ public class ConsultaPorMateriaView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jtLisMat);
 
         jSalir.setText("Salir");
+        jSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,7 +118,8 @@ public class ConsultaPorMateriaView extends javax.swing.JInternalFrame {
 
     private void jCBSelecMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecMatActionPerformed
         // TODO add your handling code here:
-
+        borrarFilaTabla();
+        
         Materia selec = (Materia) jCBSelecMat.getSelectedItem();
         int id = selec.getIdMateria();
         List<Alumno> aa = inscData.obtenerAlumnosXMateria(id);
@@ -118,6 +128,11 @@ public class ConsultaPorMateriaView extends javax.swing.JInternalFrame {
             modelo.addRow(new Object[]{i.getIdAlumno(), i.getDni(), i.getApellido(), i.getNombre()});
         }
     }//GEN-LAST:event_jCBSelecMatActionPerformed
+
+    private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jSalirActionPerformed
 
     private void cargarMaterias() {
         for (Materia item : listaM) {
@@ -138,7 +153,6 @@ public class ConsultaPorMateriaView extends javax.swing.JInternalFrame {
     }
 
     private void borrarFilaTabla() {
-
         int indice = modelo.getRowCount() - 1;
         for (int i = indice; i >= 0; i--) {
             modelo.removeRow(i);

@@ -111,6 +111,11 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         jAdmi.add(jManejoIns);
 
         jManNotas.setText("Manipulacion de notas");
+        jManNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jManNotasActionPerformed(evt);
+            }
+        });
         jAdmi.add(jManNotas);
 
         jMenuBar2.add(jAdmi);
@@ -186,6 +191,16 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         materia.getContentPane().setBackground(new Color(68, 167, 132));
         jDPEscritorio.add(materia);
     }//GEN-LAST:event_jAlumPorMateriaActionPerformed
+
+    private void jManNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManNotasActionPerformed
+        // TODO add your handling code here:
+        jDPEscritorio.removeAll();
+        jDPEscritorio.repaint();
+        CargaNotasView materia = new CargaNotasView();
+        materia.setVisible(true);
+        materia.getContentPane().setBackground(new Color(68, 167, 132));
+        jDPEscritorio.add(materia);
+    }//GEN-LAST:event_jManNotasActionPerformed
 
     /**
      * @param args the command line arguments
