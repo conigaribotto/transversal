@@ -5,17 +5,22 @@
  */
 package vistas;
 
-/**
- *
- * @author Fiorella Ailén
- */
+import accesoADatos.MateriaData;
+import entidades.Alumno;
+import entidades.Materia;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 public class GestionMateriaView extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form GestionMateria
-     */
+    private MateriaData md = new MateriaData();
+    private Materia materiaActual = null;
+
     public GestionMateriaView() {
         initComponents();
+        this.setTitle("Gestion de Materias");
     }
 
     /**
@@ -43,7 +48,7 @@ public class GestionMateriaView extends javax.swing.JInternalFrame {
         jGuardar = new javax.swing.JButton();
         jSalir = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 204, 153));
+        setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setText("Materia");
 
@@ -62,10 +67,25 @@ public class GestionMateriaView extends javax.swing.JInternalFrame {
         });
 
         jBuscar.setText("Buscar");
+        jBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBuscarActionPerformed(evt);
+            }
+        });
 
         jNuevo.setText("Nuevo");
+        jNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNuevoActionPerformed(evt);
+            }
+        });
 
         jEliminar.setText("Eliminar");
+        jEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEliminarActionPerformed(evt);
+            }
+        });
 
         jGuardar.setText("Guardar");
         jGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,17 +183,93 @@ public class GestionMateriaView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTCodigoActionPerformed
-
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
         // TODO add your handling code here:
+        
+       try {
+            Integer codigo = Integer.parseInt(jTCodigo.getText());
+            Integer anio = Integer.parseInt(jTAnio.getText());
+            
+            String nombre = jTNombre.getText();
+            
+            if (nombre.isEmpty() || jTCodigo.getText().isEmpty() || jTAnio.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No pueden haber campos vacíos");
+                return;
+            }
+            
+            Boolean estado = jEstado.isSelected();
+            
+            if (materiaActual == null) {
+                materiaActual = new Materia(codigo, nombre, anio, estado);
+                md.guardarMateria(materiaActual);
+            } else {
+                materiaActual.setIdMateria(codigo);
+                materiaActual.setNombre(nombre);
+                materiaActual.setAnioMateria(0);
+                md.modificarMateria(materiaActual);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar un código válido");
+        }
+        
     }//GEN-LAST:event_jGuardarActionPerformed
 
     private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
         // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_jSalirActionPerformed
+
+    private void jBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscarActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            Integer codigo = Integer.parseInt(jTCodigo.getText());
+
+            materiaActual = md.buscarMateriaPorId(Integer.parseInt(jTCodigo.getText()));
+            if (materiaActual != null) {
+                jTNombre.setText(materiaActual.getNombre());
+                jTAnio.setText(String.valueOf(materiaActual.getAnioMateria()));
+                jEstado.setSelected(materiaActual.isActivo());
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar un código válido.");
+        }
+
+    }//GEN-LAST:event_jBuscarActionPerformed
+
+    private void jNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNuevoActionPerformed
+        // TODO add your handling code here:
+        
+        limpiarCampos();
+        materiaActual = null;
+        
+        
+    }//GEN-LAST:event_jNuevoActionPerformed
+
+    private void jEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEliminarActionPerformed
+        // TODO add your handling code here:
+        
+        if(materiaActual != null){
+            md.eliminarMateria(materiaActual.getIdMateria());
+            materiaActual = null;
+            limpiarCampos();
+        }else{
+            JOptionPane.showMessageDialog(this, "No hay materia seleccionada.");
+        }
+        
+    }//GEN-LAST:event_jEliminarActionPerformed
+
+    private void jTCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTCodigoActionPerformed
+
+    private void limpiarCampos() {
+        jTCodigo.setText("");
+        jTNombre.setText("");
+        jTAnio.setText("");
+        jEstado.setSelected(true);
+
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

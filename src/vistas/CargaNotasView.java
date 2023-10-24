@@ -122,7 +122,7 @@ public class CargaNotasView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jGuardar)
                     .addComponent(jSalir))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
