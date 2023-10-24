@@ -72,11 +72,11 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         jDPEscritorio.setLayout(jDPEscritorioLayout);
         jDPEscritorioLayout.setHorizontalGroup(
             jDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 816, Short.MAX_VALUE)
         );
         jDPEscritorioLayout.setVerticalGroup(
             jDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGap(0, 541, Short.MAX_VALUE)
         );
 
         jAlumno.setText("Alumno");
@@ -151,6 +151,12 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void jManejoInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManejoInsActionPerformed
         // TODO add your handling code here:
+        jDPEscritorio.removeAll();
+        jDPEscritorio.repaint();
+        InscripcionesView inscripciones = new InscripcionesView();
+        inscripciones.setVisible(true);
+        inscripciones.getContentPane().setBackground(new Color(68, 167, 132));
+        jDPEscritorio.add(inscripciones);
     }//GEN-LAST:event_jManejoInsActionPerformed
 
     private void jFormAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormAlumActionPerformed
