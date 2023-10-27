@@ -11,6 +11,7 @@ import entidades.Alumno;
 import entidades.Inscripcion;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -94,6 +95,11 @@ public class CargaNotasView extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jTCarNotas);
 
         jGuardar.setText("Guardar");
+        jGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jGuardarActionPerformed(evt);
+            }
+        });
 
         jSalir.setText("Salir");
         jSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +177,22 @@ public class CargaNotasView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jSalirActionPerformed
+
+    private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
+        // TODO add your handling code here:
+      
+        int filaSeleccionada = jTCarNotas.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            Alumno a = (Alumno) jCBSeleccAlum.getSelectedItem();
+            int idMat = (Integer) modelo.getValueAt(filaSeleccionada, 0);
+            double nota = Double.parseDouble((String) modelo.getValueAt(filaSeleccionada, 2));
+            inscData.actualizarNota(a.getIdAlumno(), idMat, nota);
+            borrarFilaTabla();
+        }else{
+          JOptionPane.showMessageDialog(this, "Debe seleccionar para poder actualizar.");
+        }
+        
+    }//GEN-LAST:event_jGuardarActionPerformed
 
     private void armarCabeceraTabla() {
         ArrayList<Object> filaCabecera = new ArrayList<>();
